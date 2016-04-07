@@ -6,6 +6,8 @@ public class DayCalculator {
 		public int getTotalDays(int year, int month, int day){
 			int totalDays = 0;
 			
+			for(int yearIndex = 1; yearIndex<year; yearIndex++)
+				totalDays= totalDays+365;
 			for(int monthIndex = 1; monthIndex < month; monthIndex++)
 				totalDays = totalDays + numberOfMonthDay[monthIndex];
 			
@@ -17,6 +19,16 @@ public class DayCalculator {
 			int totalDays = getTotalDays(year, month, day);
 			
 			return dayNames[totalDays % 7];
+		}
+		public static boolean isLeap(int year) {
+			if(year % 400 == 0)
+				return true;
+			else if(year % 100 == 0)
+				return false;
+			else if(year % 4 == 0)
+				return true;
+			else
+				return false;
 		}
 		
 	}
