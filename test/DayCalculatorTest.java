@@ -1,72 +1,76 @@
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+
 public class DayCalculatorTest {
-	DayCalculator dayCalculator;
+	static DayCalculator dayCalculator;
 	
+	@Before
 	public void setUp() throws Exception {
 		dayCalculator = new DayCalculator();
 	}
 	
+	@After
 	public void tearDown() throws Exception {
 		
 	}
 	
 	@Test
-	public void test00010101() {
+	public void test00010101() throws Exception {
 		DayCalculator dayCalculator = new DayCalculator();
 		assertEquals("Mon", dayCalculator.getDay(1,1,1));
 	}
 	@Test
-	public void test00010102() {
+	public void test00010102() throws Exception {
 		DayCalculator dayCalculator = new DayCalculator();
 		assertEquals("Tue", dayCalculator.getDay(1,1,2));
 	}
 	@Test
-	public void test00010103() {
+	public void test00010103() throws Exception {
 		assertEquals("Wen", dayCalculator.getDay(1,1,3));
 	}
 	@Test
-	public void test00010104() {
+	public void test00010104() throws Exception {
 		assertEquals("Thu", dayCalculator.getDay(1,1,4));
 	}
 	@Test
-	public void test00010110() {
+	public void test00010110() throws Exception {
 		assertEquals("Wen", dayCalculator.getDay(1,1,10));
 	}
 	@Test
-	public void test00010201() {
+	public void test00010201() throws Exception {
 		assertEquals("Thu", dayCalculator.getDay(1, 2, 1));
 	}
 	@Test
-	public void test00010202() {
+	public void test00010202() throws Exception {
 		assertEquals("Fri", dayCalculator.getDay(1, 2, 2));
 	}
 	@Test
-	public void test00010301() {
+	public void test00010301() throws Exception {
 		assertEquals("Thu", dayCalculator.getDay(1, 3, 1));
 	}
 	@Test
-	public void test00010401() {
+	public void test00010401() throws Exception {
 		assertEquals("Fri", dayCalculator.getDay(1,4,1));
-
 	}
 	@Test
-	public void test00020101() {
+	public void test00020101() throws Exception {
 		assertEquals("Tue", dayCalculator.getDay(2, 1, 1));
 	}
 	@Test
-	public void test00030101() {
+	public void test00030101() throws Exception {
 		assertEquals("Wen", dayCalculator.getDay(3, 1, 1));
 	}
 	@Test
-	public void test00040101() {
+	public void test00040101() throws Exception {
 		assertEquals("Thu", dayCalculator.getDay(4, 1, 1));
 	}
-	@Ignore
-	public void test20160407() {
+	@Test
+	public void test20160407() throws Exception {
 		assertEquals("Thu", dayCalculator.getDay(2016, 4, 7));
 	}
 	@Test
@@ -104,5 +108,9 @@ public class DayCalculatorTest {
 	@Test
 	public void testIsLeap400() {
 		assertTrue(DayCalculator.isLeap(400));
+	}
+	@Test(expected = Exception.class)
+	public void test20160450() throws Exception {
+		dayCalculator.getDay(2016, 4, 50);
 	}
 }
