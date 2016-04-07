@@ -55,7 +55,7 @@ public class DayCalculatorTest {
 	}
 	@Test
 	public void test00010401() throws Exception {
-		assertEquals("Fri", dayCalculator.getDay(1,4,1));
+		assertEquals("Sun", dayCalculator.getDay(1,4,1));
 	}
 	@Test
 	public void test00020101() throws Exception {

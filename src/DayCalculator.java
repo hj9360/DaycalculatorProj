@@ -8,7 +8,7 @@ public class DayCalculator {
 			
 			for(int yearIndex = 1; yearIndex<year; yearIndex++) {
 				if(isLeap(yearIndex))
-					totalDays = totalDays + 365;
+					totalDays = totalDays + 366;
 				else 
 					totalDays = totalDays + 365;
 			}	
